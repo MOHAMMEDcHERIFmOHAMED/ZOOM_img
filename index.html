@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            display:flex ;
+            align-items: center;
+            justify-content: center;
+            background-color: rgb(4, 4, 38);
+            height: 100vh;
+        }
+        .container{
+            height: 550px;
+            width: 450px;
+            border: solid  white 1px;
+            background-position: center;
+            overflow: hidden;
+        }
+        img{
+            height: 100%;
+            width: 100%;
+        }
+</style>
+</head>
+<body>
+    <div class="container"><img src="4.jpg" alt=""></div>
+    
+    <script>
+        const container = document.querySelector(".container"); 
+        const img = document.querySelector(".container img"); 
+
+        container.addEventListener('mousemove' ,(e)=>{
+            const x = e.clientX - e.target.offsetLeft   ;
+            const y = e.clientY - e.target.offsetTop;
+            img.style.transformOrigin = `${x}px ${y}px` ;
+            img.style.transform = "scale(2)" ;
+        })
+        container.addEventListener('mouseleave' ,(e)=>{
+          
+            img.style.transformOrigin = "center" ;
+            img.style.transform = "scale(1)" ;
+        })
+        
+    </script>
+</body>
+</html>
